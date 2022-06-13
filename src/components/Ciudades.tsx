@@ -22,14 +22,14 @@ export const Ciudades = () => {
         const res4 = await conexionAPI.get<CiudadResponse>("/weather?id=1850147&appid=d15c12843da97aafa27705e828ceb4b6");
         setTemp(temp => [...temp,res4.data]);
         const res5 = await conexionAPI.get<CiudadResponse>("/weather?id=2147714&appid=d15c12843da97aafa27705e828ceb4b6");
-        setTemp(temp => [res5.data]);
+        setTemp(temp => [...temp,res5.data]);
       } catch (error) {
         console.log(error);
       }
     }  
     useEffect(()=>{
       getCiudades();
-    },[setTemp]) 
+    },[]) 
 
   return (
     <div className='flexContainer'>
